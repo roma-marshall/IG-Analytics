@@ -47,3 +47,14 @@ const getFollowers = (isNeed) => {
     }
 }
 
+
+/*
+    Check the difference between following and followers
+ */
+
+const getDifference = () => {
+    let difference = me.filter(x => you.indexOf(x) === -1)
+    console.log(difference)
+}
+
+
