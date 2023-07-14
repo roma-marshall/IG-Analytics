@@ -62,6 +62,6 @@ const getDifference = () => {
     Run data analytics
  */
 
-getFollowing(me, true) // run and wait a few seconds to collect data
-getFollowers(you, true) // then run and wait a few seconds to collect data
+getFollowing(true) // run and wait a few seconds to collect data
+getFollowers(true) // then run and wait a few seconds to collect data
 getDifference() // run and get results
