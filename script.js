@@ -35,7 +35,7 @@ const getFollowing = (isNeed) => {
 
 const getFollowers = (isNeed) => {
     if (isNeed === true) {
-        document.querySelector(`[href="/${username}/following/"]`).click()
+        document.querySelector(`[href="/${username}/followers/"]`).click()
         setTimeout(() => {
             document.querySelector('._aano div div').setAttribute('id', 'you')
             document.querySelectorAll('#you span div [role="link"]').forEach((element, i) => {
