@@ -8,14 +8,14 @@
 
 let me = []
 let you = []
-let username = prompt('Type here your nickname')
+let username = window.location.href.slice(25)
 
 /*
     Add your following (those who you follow)
  */
 
 const getFollowing = () => {
-    document.querySelector(`[href="/${username}/following/"]`).click()
+    document.querySelector(`[href="${username}following/"]`).click()
     setTimeout(() => {
         document.querySelector('._aano div div').setAttribute('id', 'me')
         document.querySelectorAll('#me span div [role="link"]').forEach((element, i) => {
@@ -30,7 +30,7 @@ const getFollowing = () => {
  */
 
 const getFollowers = () => {
-    document.querySelector(`[href="/${username}/followers/"]`).click()
+    document.querySelector(`[href="${username}followers/"]`).click()
     setTimeout(() => {
         document.querySelector('._aano div div').setAttribute('id', 'you')
         document.querySelectorAll('#you span div [role="link"]').forEach((element, i) => {
