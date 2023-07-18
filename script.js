@@ -22,11 +22,11 @@ const startUp = () => {
     font-size: 16px; font-family: Arial, serif;
     box-shadow: 0 10px 15px -3px #4d4d4d;">
         <p style="font-size: 18px;">Hey, this service will show you who is not follow you on instagram. Complete these steps:</p>
-        <p>1. Run the first stage <button onclick="openFollowing()">click me!</button></p>
-        <p>2. Scroll to the bottom your following, then <button id="step2" disabled onclick="getFollowing()">click me</button></p>
-        <p>3. Now <button id="step3" disabled onclick="openFollowers()">click me</button></p>
-        <p>4. Scroll to the bottom your followers, then <button id="step4" disabled onclick="getFollowers()">click me</button></p>
-        <p>5. Then <button id="step5" disabled onclick="getDifference()">click me to get results</button></p>
+        <p>1. <button id="step1" onclick="openFollowing()">click me!</button></p>
+        <p>2. <button id="step2" disabled onclick="getFollowing()">click me</button></p>
+        <p>3. <button id="step3" disabled onclick="openFollowers()">click me</button></p>
+        <p>4. <button id="step4" disabled onclick="getFollowers()">click me</button></p>
+        <p>5. <button id="step5" disabled onclick="getDifference()">click me to get results</button></p>
     </div>`
 }
 
@@ -38,7 +38,8 @@ const openFollowing = () => {
     document.querySelector(`[href="${username}following/"]`).click()
     setTimeout(() => {
         document.querySelector('button#step2').disabled = false
-    }, 5000)
+    }, 3000)
+    document.querySelector('button#step1').disabled = true
 }
 
 
@@ -51,6 +52,7 @@ const getFollowing = () => {
     document.querySelectorAll('#me span div [role="link"]').forEach((element, i) => {
         me[i] = element.getAttribute('href')
     })
+    document.querySelector('button#step2').disabled = true
     document.querySelector('button#step3').disabled = false
 }
 
@@ -63,7 +65,8 @@ const openFollowers = () => {
     document.querySelector(`[href="${username}followers/"]`).click()
     setTimeout(() => {
         document.querySelector('button#step4').disabled = false
-    }, 5000)
+    }, 3000)
+    document.querySelector('button#step3').disabled = true
 }
 
 
@@ -76,6 +79,7 @@ const getFollowers = () => {
     document.querySelectorAll('#you span div [role="link"]').forEach((element, i) => {
         you[i] = element.getAttribute('href')
     })
+    document.querySelector('button#step4').disabled = true
     document.querySelector('button#step5').disabled = false
 }
 
@@ -85,6 +89,7 @@ const getFollowers = () => {
  */
 
 const getDifference = () => {
+    document.querySelector('button#step5').disabled = true
     let difference = me.filter(x => you.indexOf(x) === -1)
     console.log(difference)
 }
