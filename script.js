@@ -31,16 +31,16 @@ const startUp = () => {
                 <span id="mark1" style="font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step1" onclick="openFollowing()">click me!</button>
             </div>
             <div style="display: flex; margin-bottom: 0.75rem;">
-                <span id="mark2" style="font-size: 1.5rem; margin-right: 0.25rem;"></span><button id="step2" disabled onclick="getFollowing()">click me</button>
+                <span id="mark2" style="visibility: hidden; font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step2" disabled onclick="getFollowing()">click me</button>
             </div>
             <div style="display: flex; margin-bottom: 0.75rem;">
-                <span id="mark3" style="font-size: 1.5rem; margin-right: 0.25rem;"></span><button id="step3" disabled onclick="openFollowers()">click me</button>
+                <span id="mark3" style="visibility: hidden; font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step3" disabled onclick="openFollowers()">click me</button>
             </div>
             <div style="display: flex; margin-bottom: 0.75rem;">
-                <span id="mark4" style="font-size: 1.5rem; margin-right: 0.25rem;"></span><button id="step4" disabled onclick="getFollowers()">click me</button>
+                <span id="mark4" style="visibility: hidden; font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step4" disabled onclick="getFollowers()">click me</button>
             </div>
             <div style="display: flex; margin-bottom: 0.75rem;">
-                <span id="mark5" style="font-size: 1.5rem; margin-right: 0.25rem;"></span><button id="step5" disabled onclick="getDifference()">click me to get results</button>
+                <span id="mark5" style="visibility: hidden; font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step5" disabled onclick="getDifference()">click me</button>
             </div>
         </div>
     </div>`
@@ -55,6 +55,7 @@ const openFollowing = () => {
     document.querySelector('button#step1').disabled = true
     document.querySelector('#mark1').innerHTML = done
     document.querySelector('#mark2').innerHTML = work
+    document.querySelector('#mark2').style.visibility = 'initial'
     setTimeout(() => {
         document.querySelector('button#step2').disabled = false
     }, 3000)
@@ -71,6 +72,7 @@ const getFollowing = () => {
     document.querySelector('button#step3').disabled = false
     document.querySelector('#mark2').innerHTML = done
     document.querySelector('#mark3').innerHTML = work
+    document.querySelector('#mark3').style.visibility = 'initial'
     document.querySelectorAll('#me span div [role="link"]').forEach((element, i) => {
         me[i] = element.getAttribute('href')
     })
@@ -86,6 +88,7 @@ const openFollowers = () => {
     document.querySelector('button#step3').disabled = true
     document.querySelector('#mark3').innerHTML = done
     document.querySelector('#mark4').innerHTML = work
+    document.querySelector('#mark4').style.visibility = 'initial'
     setTimeout(() => {
         document.querySelector('button#step4').disabled = false
     }, 3000)
@@ -102,6 +105,7 @@ const getFollowers = () => {
     document.querySelector('button#step5').disabled = false
     document.querySelector('#mark4').innerHTML = done
     document.querySelector('#mark5').innerHTML = work
+    document.querySelector('#mark5').style.visibility = 'initial'
     document.querySelectorAll('#you span div [role="link"]').forEach((element, i) => {
         you[i] = element.getAttribute('href')
     })
