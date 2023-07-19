@@ -8,6 +8,7 @@
 
 let me = []
 let you = []
+let difference
 let username = window.location.href.slice(25)
 let work = '👉'
 let done = '✅'
@@ -119,7 +120,7 @@ const getFollowers = () => {
 const getDifference = () => {
     document.querySelector('button#step5').disabled = true
     document.querySelector('#mark5').innerHTML = done
-    let difference = me.filter(x => you.indexOf(x) === -1)
+    difference = me.filter(x => you.indexOf(x) === -1)
     console.log(difference)
 }
 
