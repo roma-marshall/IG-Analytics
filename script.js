@@ -44,6 +44,8 @@ const startUp = () => {
                 <span id="mark5" style="visibility: hidden; font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step5" disabled onclick="getDifference()">click me</button>
             </div>
         </div>
+        <div id="ig-analytics" style="padding: 0.75rem 1rem; background-color: #dbecff; color: black;
+        overflow: scroll; max-height: 200px;"></div>
     </div>`
 }
 
@@ -59,7 +61,7 @@ const openFollowing = () => {
     document.querySelector('#mark2').style.visibility = 'initial'
     setTimeout(() => {
         document.querySelector('button#step2').disabled = false
-    }, 3000)
+    }, 0)
 }
 
 
@@ -92,7 +94,7 @@ const openFollowers = () => {
     document.querySelector('#mark4').style.visibility = 'initial'
     setTimeout(() => {
         document.querySelector('button#step4').disabled = false
-    }, 3000)
+    }, 0)
 }
 
 
@@ -122,6 +124,9 @@ const getDifference = () => {
     document.querySelector('#mark5').innerHTML = done
     difference = me.filter(x => you.indexOf(x) === -1)
     console.log(difference)
+    difference.forEach((element, i) => {
+        document.querySelector('#ig-analytics').innerHTML += `<p>${i}.&nbsp;${element}</p>`
+    })
 }
 
 
