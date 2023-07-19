@@ -124,8 +124,10 @@ const getDifference = () => {
     document.querySelector('#mark5').innerHTML = done
     difference = me.filter(x => you.indexOf(x) === -1)
     console.log(difference)
+    let result
     difference.forEach((element, i) => {
-        document.querySelector('#ig-analytics').innerHTML += `<p>${i}.&nbsp;${element}</p>`
+        result = `<p>${i + 1}.&nbsp;<a target="_blank" href="https://www.instagram.com/${element.slice(1, -1)}">${element.slice(1, -1)}</a></p>`
+        document.querySelector('#ig-analytics').innerHTML += result
     })
 }
 
