@@ -61,7 +61,7 @@ const openFollowing = () => {
     document.querySelector('#mark2').style.visibility = 'initial'
     setTimeout(() => {
         document.querySelector('button#step2').disabled = false
-    }, 0)
+    }, 1000)
 }
 
 
@@ -94,7 +94,7 @@ const openFollowers = () => {
     document.querySelector('#mark4').style.visibility = 'initial'
     setTimeout(() => {
         document.querySelector('button#step4').disabled = false
-    }, 0)
+    }, 1000)
 }
 
 
@@ -136,4 +136,6 @@ const getDifference = () => {
     Run script
  */
 
-startUp()
+// startUp()
+
+export { startUp }
