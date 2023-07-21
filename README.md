@@ -1,4 +1,8 @@
 # IG Unfollowers
+[![made-with-javascript](https://img.shields.io/badge/made_with-javasript-goldenrod
+)](https://www.javascript.com)
+[![maintaned-true](https://img.shields.io/badge/maintaned-true-seagreen
+)](https://github.com/roma-marshall)
 >_The simplest and safest  way to check if people follows you back_
 
 
