@@ -14,4 +14,4 @@ let me=[],you=[],difference,username=window.location.href.slice(25),work="\uD83D
    ```
 
 2. Goto Instagram webpage and log in into your account.
-3. Open the developer console: **Ctrl + Shift + J** (on Windows) || **⌘ + ⌥ + I** (on MacOS) and paste the code.
+3. Open the developer console: **Ctrl + Shift + J** (on Windows) or **⌘ + ⌥ + I** (on MacOS) and paste the code.
