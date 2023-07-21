@@ -136,6 +136,4 @@ const getDifference = () => {
     Run script
  */
 
-// startUp()
-
-export { startUp }
+startUp()
