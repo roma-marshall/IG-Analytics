@@ -8,10 +8,13 @@
 
 let me = []
 let you = []
+let heightMe
+let heightYou
 let difference
 let username = window.location.href.slice(25)
-let work = '👉'
-let done = '✅'
+let meCount = Number(document.querySelector(`[href="${username}following/"] span`).textContent)
+let youCount = Number(document.querySelector(`[href="${username}followers/"] span`).textContent)
+
 
 /*
     Start up function
@@ -49,69 +52,49 @@ const startUp = () => {
     </div>`
 }
 
-/*
-    Step 1: Open Following
- */
 
-const openFollowing = () => {
+const initFunc = () => {
     document.querySelector(`[href="${username}following/"]`).click()
-    document.querySelector('button#step1').disabled = true
-    document.querySelector('#mark1').innerHTML = done
-    document.querySelector('#mark2').innerHTML = work
-    document.querySelector('#mark2').style.visibility = 'initial'
     setTimeout(() => {
-        document.querySelector('button#step2').disabled = false
-    }, 1000)
+        document.querySelector('._aano div div').setAttribute('id', 'me')
+        const meTimer = setInterval(() => {
+            if (document.querySelector('#me')) {
+                heightMe = document.querySelector('#me').scrollHeight
+                document.querySelector('#me').scrollIntoView({block: 'end'})
+                if (heightMe === document.querySelector('#me').scrollHeight) {
+                    document.querySelectorAll('#me div a[role="link"] span').forEach((element, i) => {
+                        me[i] = element.textContent
+                    })
+                    if (me.length === meCount) {
+                        initNext()
+                        clearInterval(meTimer)
+                    }
+                }
+            }
+        }, 1000)
+    }, 5000)
 }
 
 
-/*
-    Add your following (those who you follow)
- */
-
-const getFollowing = () => {
-    document.querySelector('._aano div div').setAttribute('id', 'me')
-    document.querySelector('button#step2').disabled = true
-    document.querySelector('button#step3').disabled = false
-    document.querySelector('#mark2').innerHTML = done
-    document.querySelector('#mark3').innerHTML = work
-    document.querySelector('#mark3').style.visibility = 'initial'
-    document.querySelectorAll('#me div [role="link"]').forEach((element, i) => {
-        me[i] = element.getAttribute('href')
-    })
-}
-
-
-/*
-    Step 3: Open Followers
- */
-
-const openFollowers = () => {
+const initNext = () => {
     document.querySelector(`[href="${username}followers/"]`).click()
-    document.querySelector('button#step3').disabled = true
-    document.querySelector('#mark3').innerHTML = done
-    document.querySelector('#mark4').innerHTML = work
-    document.querySelector('#mark4').style.visibility = 'initial'
     setTimeout(() => {
-        document.querySelector('button#step4').disabled = false
-    }, 1000)
-}
-
-
-/*
-    Add your followers (those who follow you)
- */
-
-const getFollowers = () => {
-    document.querySelector('._aano div div').setAttribute('id', 'you')
-    document.querySelector('button#step4').disabled = true
-    document.querySelector('button#step5').disabled = false
-    document.querySelector('#mark4').innerHTML = done
-    document.querySelector('#mark5').innerHTML = work
-    document.querySelector('#mark5').style.visibility = 'initial'
-    document.querySelectorAll('#you div [role="link"]').forEach((element, i) => {
-        you[i] = element.getAttribute('href')
-    })
+        document.querySelector('._aano div div').setAttribute('id', 'you')
+        const youTimer = setInterval(() => {
+            if (document.querySelector('#you')) {
+                heightYou = document.querySelector('#you').scrollHeight
+                document.querySelector('#you').scrollIntoView({block: 'end'})
+                if (heightYou === document.querySelector('#you').scrollHeight) {
+                    document.querySelectorAll('#you div a[role="link"] span').forEach((element, i) => {
+                        you[i] = element.textContent
+                    })
+                    if (you.length === youCount) {
+                        clearInterval(youTimer)
+                    }
+                }
+            }
+        }, 1000)
+    }, 5000)
 }
 
 
@@ -120,8 +103,6 @@ const getFollowers = () => {
  */
 
 const getDifference = () => {
-    document.querySelector('button#step5').disabled = true
-    document.querySelector('#mark5').innerHTML = done
     difference = me.filter(x => you.indexOf(x) === -1)
     console.log(difference)
     let result
@@ -136,4 +117,4 @@ const getDifference = () => {
     Run script
  */
 
-startUp()
+initFunc()
