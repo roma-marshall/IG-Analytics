@@ -23,12 +23,15 @@ let youCount = Number(document.querySelector(`[href="${username}followers/"] spa
 const startUp = () => {
     let body = document.querySelector('#fb-root')
     body.innerHTML += `
-    <div style="background-color: black; width: 100%; height: 100%; top: 0; position: absolute; z-index: 9999;">
-        <button onclick="getFollowing()"
-                style="position: absolute; top: 40%; left: 50%; border-radius: 25px; border: 1px solid gray; padding: 1rem 3rem; background: white; box-shadow: 0 0 35px #3292ff;">
-            Start
-        </button>
-        <div id="ig-analytics"></div>
+    <div style="background-color: #4d4d4d; width: 100%; height: 100%; top: 0; position: absolute; z-index: 9999;">
+        <div style="position:absolute; top: 40%; left: 50%;">
+            <div style="font-size: 18px; color: white; margin-bottom: 1rem;">Current Status:<span id="currentStatus"></span></div>
+            <button onclick="getFollowing()"
+                    style="border-radius: 25px; border: 1px solid gray; padding: 1rem 3rem; background: white; box-shadow: 0 0 35px #3292ff;">
+                Start
+            </button>
+            <div id="ig-analytics" style="font-size: 16px; overflow: scroll; max-height: 200px;"></div>
+        </div>
     </div>`
 }
 
@@ -38,6 +41,7 @@ const startUp = () => {
  */
 
 const getFollowing = () => {
+    document.querySelector('#currentStatus').innerHTML = 'we are analysing your following'
     document.querySelector(`[href="${username}following/"]`).click()
     setTimeout(() => {
         document.querySelector('._aano div div').setAttribute('id', 'me')
@@ -65,6 +69,7 @@ const getFollowing = () => {
  */
 
 const getFollowers = () => {
+    document.querySelector('#currentStatus').innerHTML = 'we are analysing your followers'
     document.querySelector(`[href="${username}followers/"]`).click()
     setTimeout(() => {
         document.querySelector('._aano div div').setAttribute('id', 'you')
@@ -96,7 +101,7 @@ const getDifference = () => {
     console.log(difference)
     let result
     difference.forEach((element, i) => {
-        result = `<p>${i + 1}.&nbsp;<a target="_blank" href="https://www.instagram.com/${element.slice(1, -1)}">${element.slice(1, -1)}</a></p>`
+        result = `<p>${i + 1}.&nbsp;<a style="color: white;" target="_blank" href="https://www.instagram.com/${element.slice(1, -1)}">${element.slice(1, -1)}</a></p>`
         document.querySelector('#ig-analytics').innerHTML += result
     })
 }
