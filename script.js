@@ -76,7 +76,7 @@ const getFollowing = () => {
     document.querySelector('#mark2').innerHTML = done
     document.querySelector('#mark3').innerHTML = work
     document.querySelector('#mark3').style.visibility = 'initial'
-    document.querySelectorAll('#me span div [role="link"]').forEach((element, i) => {
+    document.querySelectorAll('#me div [role="link"]').forEach((element, i) => {
         me[i] = element.getAttribute('href')
     })
 }
@@ -109,7 +109,7 @@ const getFollowers = () => {
     document.querySelector('#mark4').innerHTML = done
     document.querySelector('#mark5').innerHTML = work
     document.querySelector('#mark5').style.visibility = 'initial'
-    document.querySelectorAll('#you span div [role="link"]').forEach((element, i) => {
+    document.querySelectorAll('#you div [role="link"]').forEach((element, i) => {
         you[i] = element.getAttribute('href')
     })
 }
