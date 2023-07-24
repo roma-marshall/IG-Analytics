@@ -23,37 +23,21 @@ let youCount = Number(document.querySelector(`[href="${username}followers/"] spa
 const startUp = () => {
     let body = document.querySelector('#fb-root')
     body.innerHTML += `
-    <div style="z-index: 9999; position: fixed; width: 200px; top: 20%; right: 0;
-    border-radius: 5px; color: white;
-    font-size: 16px; font-family: Arial, serif;
-    box-shadow: 0 10px 15px -3px #4d4d4d;">
-        <div style="display: flex; justify-content: space-between; font-size: 18px; background-color: #3292ff;">
-            <div style="padding: 0.75rem 1rem;">IG Analytics</div>
-        </div>
-        <div style="padding: 1.5rem; background-color: #dbecff;">
-            <div style="display: flex; margin-bottom: 0.75rem;">
-                <span id="mark1" style="font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step1" onclick="openFollowing()">click me!</button>
-            </div>
-            <div style="display: flex; margin-bottom: 0.75rem;">
-                <span id="mark2" style="visibility: hidden; font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step2" disabled onclick="getFollowing()">click me</button>
-            </div>
-            <div style="display: flex; margin-bottom: 0.75rem;">
-                <span id="mark3" style="visibility: hidden; font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step3" disabled onclick="openFollowers()">click me</button>
-            </div>
-            <div style="display: flex; margin-bottom: 0.75rem;">
-                <span id="mark4" style="visibility: hidden; font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step4" disabled onclick="getFollowers()">click me</button>
-            </div>
-            <div style="display: flex; margin-bottom: 0.75rem;">
-                <span id="mark5" style="visibility: hidden; font-size: 1.5rem; margin-right: 0.25rem;">👉</span><button id="step5" disabled onclick="getDifference()">click me</button>
-            </div>
-        </div>
-        <div id="ig-analytics" style="padding: 0.75rem 1rem; background-color: #dbecff; color: black;
-        overflow: scroll; max-height: 200px;"></div>
+    <div style="background-color: black; width: 100%; height: 100%; top: 0; position: absolute; z-index: 9999;">
+        <button onclick="getFollowing()"
+                style="position: absolute; top: 40%; left: 50%; border-radius: 25px; border: 1px solid gray; padding: 1rem 3rem; background: white; box-shadow: 0 0 35px #3292ff;">
+            Start
+        </button>
+        <div id="ig-analytics"></div>
     </div>`
 }
 
 
-const initFunc = () => {
+/*
+    Get your following (those who you follow)
+ */
+
+const getFollowing = () => {
     document.querySelector(`[href="${username}following/"]`).click()
     setTimeout(() => {
         document.querySelector('._aano div div').setAttribute('id', 'me')
@@ -66,7 +50,7 @@ const initFunc = () => {
                         me[i] = element.textContent
                     })
                     if (me.length === meCount) {
-                        initNext()
+                        getFollowers()
                         clearInterval(meTimer)
                     }
                 }
@@ -76,7 +60,11 @@ const initFunc = () => {
 }
 
 
-const initNext = () => {
+/*
+    Get your followers (those who follow you)
+ */
+
+const getFollowers = () => {
     document.querySelector(`[href="${username}followers/"]`).click()
     setTimeout(() => {
         document.querySelector('._aano div div').setAttribute('id', 'you')
@@ -89,6 +77,7 @@ const initNext = () => {
                         you[i] = element.textContent
                     })
                     if (you.length === youCount) {
+                        getDifference()
                         clearInterval(youTimer)
                     }
                 }
@@ -112,9 +101,4 @@ const getDifference = () => {
     })
 }
 
-
-/*
-    Run script
- */
-
-initFunc()
+startUp()
