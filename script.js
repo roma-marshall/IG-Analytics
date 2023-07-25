@@ -24,8 +24,10 @@ const startUp = () => {
     let body = document.querySelector('#fb-root')
     body.innerHTML += `
     <div class="ig-bg-root">
-        <div style="position:absolute; top: 40%; left: 50%;">
-            <div style="font-size: 18px; color: white; margin-bottom: 1rem;">Current Status:<span id="currentStatus"></span></div>
+        <div style="position: absolute; top: 40%; left: 50%;">
+            <div style="font-size: 18px; color: white; margin-bottom: 1rem;">STATUS:
+                <span id="currentStatus"></span>
+            </div>
             <button class="animated-button1" onclick="getFollowing()">
                   <span></span>
                   <span></span>
