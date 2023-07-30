@@ -1749,7 +1749,7 @@ const startUp = () => {
  */
 
 const getFollowing = () => {
-    document.querySelector('#currentStatus').innerHTML = 'we are analysing your following'
+    // document.querySelector('#currentStatus').innerHTML = 'we are analysing your following'
     document.querySelector(`[href="${username}following/"]`).click()
     setTimeout(() => {
         document.querySelector('._aano div div').setAttribute('id', 'me')
@@ -1777,7 +1777,7 @@ const getFollowing = () => {
  */
 
 const getFollowers = () => {
-    document.querySelector('#currentStatus').innerHTML = 'we are analysing your followers'
+    // document.querySelector('#currentStatus').innerHTML = 'we are analysing your followers'
     document.querySelector(`[href="${username}followers/"]`).click()
     setTimeout(() => {
         document.querySelector('._aano div div').setAttribute('id', 'you')
@@ -1810,8 +1810,9 @@ const getDifference = () => {
     let result
     difference.forEach((element, i) => {
         result = `<p>${i + 1}.&nbsp;<a style="color: white;" target="_blank" href="https://www.instagram.com/${element.slice(1, -1)}">${element.slice(1, -1)}</a></p>`
-        document.querySelector('#ig-analytics').innerHTML += result
+        // document.querySelector('#ig-analytics').innerHTML += result
     })
 }
 
-startUp()
+getFollowing() //start without gui
+// startUp() //start with gui
