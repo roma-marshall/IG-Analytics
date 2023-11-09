@@ -15,3 +15,6 @@ let me = []; let you = []; let heightMe; let heightYou; let difference; let user
 
 2. Goto Instagram webpage and log in into your account.
 3. Open the developer console: **Ctrl + Shift + J** (on Windows) or **⌘ + ⌥ + I** (on MacOS) and paste the code.
+
+## License
+MIT License
