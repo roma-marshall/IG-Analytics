@@ -1,4 +1,4 @@
-# IG Unfollowers
+# IG Analytics
 [![made-with-javascript](https://img.shields.io/badge/made_with-javasript-goldenrod
 )](https://www.javascript.com)
 [![maintaned-true](https://img.shields.io/badge/maintaned-true-seagreen
